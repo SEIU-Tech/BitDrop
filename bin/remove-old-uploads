@@ -1,0 +1,13 @@
+#!/bin/bash
+OLD=$(date -d "1 day ago" --iso-8601=seconds)
+for dirname in $HOME/uploads/*; do
+    if [ "$(basename $dirname)" \< "$OLD" ]; then 
+        rm -rf "$dirname"
+        echo "Removed $dirname"
+    fi
+done
+
+# Also cleanup uncompleted uploads
+find /tmp -amin -60 -name 'of-*' 2>/dev/null |
+    xargs dirname 2>/dev/null |
+    xargs rm -rvf
