@@ -2,15 +2,16 @@
 
 # === NOTE: Change this for different deployment ===
 # What is URL for bitdrop
-export BITDROP_SERVER="https://b2.seiu.org"
-export VITE_BITDROP_SERVER="https://api.b2.seiu.org"
+export BITDROP_SERVER="https://<my-url-for-deployment>"
+export BITDROP_FROM_ADDRESS="bitdrop@<sender.address.example.org>"
+export VITE_BITDROP_SERVER="https://<my-api-url-for-deployment>"
 
 # Shared secret for email authentication
 export EMAIL_AUTH_TOKEN="$(head -c12 /dev/random | base64)"
 export VITE_EMAIL_AUTH_TOKEN="${EMAIL_AUTH_TOKEN}"
 
 # Customized branding for UI
-export VITE_ORG_NAME="SEIU"
+export VITE_ORG_NAME="<MY ORGANIZATION>"
 export VITE_APP_NAME="BitDrop"
 
 # Avoid any `.env` files from prior deployments
